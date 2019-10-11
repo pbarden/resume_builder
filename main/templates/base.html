@@ -59,7 +59,7 @@
 				{% for job in jobs %}
 					<article>
 						<h2>{{ job.title }} at {{ job.company }}</h2>
-						<img src="{{ job.logo_url }}" class="company_logo">
+						<img src="{{ job.logo_url }}" class="logo">
 						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</p>
 						<p>{{ job.description|markdown }}</p>
                     </article>
@@ -89,6 +89,7 @@
 					<article>
 						<h2>{{ degree.kind }} in {{ degree.major }}</h2>
 						<h3>{{ degree.school }}</h3>
+						<img src="{{ degree.logo_url }}" class="logo">
 						<p><em>{{ degree.start_date.year }} - {{ degree.end_date.year }}</em></p>
             			<p>{{ degree.description|markdown }}</p>
 					</article>
