@@ -59,7 +59,7 @@
 				{% for job in jobs %}
 					<article>
 						<h2>{{ job.title }} at {{ job.company }}</h2>
-						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</p>
+						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</p>
 						<p>{{ job.description|markdown }}</p>
                     </article>
                 {% endfor %}
