@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>D. Paul Barden's Resume</title>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="D. Paul Barden's Resume"/>
+    <meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<style>
+		html {
+			animation: fadein 2s;
+		}
+		@keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+		#headshot {
+			height: 200px;
+			width: 200px;
+			border-radius: 10px;
+			float: left;
+			margin-right: 30px;
+		}
+		html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+			border:0;
+			font:inherit;
+			font-size:100%;
+			margin:0;
+			padding:0;
+			vertical-align:baseline;
+			}
+			
+		article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+			display:block;
+		}
+			
+		html, body {background: #ededed; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+			
+		.clear {clear: both;}
+			
+		p {
+			font-size: 1em;
+			line-height: 1.4em;
+			margin-bottom: 20px;
+			color: #444;
+		}
+			
+		#cv {
+			width: 90%;
+			max-width: 800px;
+			background: #f3f3f3;
+			margin: 30px auto;
+		}
+			
+		.mainDetails {
+			padding: 25px 35px;
+			border: 3px solid #df720c;
+			border-radius: 10px;
+			background: #ededed;
+			box-shadow: 0 5px 0 -1px lightslategray;
+		}
+			
+		#name h1 {
+			font-size: 3em;
+			font-weight: 700;
+			font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+			margin-bottom: -6px;
+		}
+			
+		#name h2 {
+			font-size: 2em;
+			margin-left: 2px;
+			font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+		}
+			
+		#mainArea {
+			padding: 0 40px;
+		}
+			
+		#headshot img {
+			width: 100%;
+			height: auto;
+		}
+			
+		#name {
+			float: left;
+		}
+			
+		#contactDetails {
+			float: right;
+		}
+			
+		#contactDetails ul {
+			list-style-type: none;
+			font-size: 0.9em;
+			margin-top: 2px;
+		}
+			
+		#contactDetails ul li {
+			margin-bottom: 3px;
+			color: #444;
+		}
+			
+		#contactDetails ul li a, a[href^=tel] {
+			color: #444; 
+			text-decoration: none;
+		}
+			
+		#contactDetails ul li a:hover { 
+			color: #cf8a05;
+		}
+			
+		section {
+			border-top: 1px solid #dedede;
+			padding: 20px 0 0;
+		}
+			
+		section:first-child {
+			border-top: 0;
+		}
+			
+		section:last-child {
+			padding: 20px 0 10px;
+		}
+			
+		.sectionTitle {
+			float: left;
+			width: 25%;
+		}
+			
+		.sectionContent {
+			float: right;
+			width: 72.5%;
+		}
+			
+		.sectionTitle h1 {
+			font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+			font-style: italic;
+			font-size: 1.5em;
+			color: #cf8a05;
+		}
+			
+		.sectionContent h2 {
+			font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+			font-size: 1.5em;
+			margin-bottom: -2px;
+		}
+			
+		.subDetails {
+			font-size: 0.8em;
+			font-style: italic;
+			margin-bottom: 3px;
+		}
+			
+		.keySkills {
+			list-style-type: none;
+			-moz-column-count:3;
+			-webkit-column-count:3;
+			column-count:3;
+			margin-bottom: 20px;
+			font-size: 1em;
+			color: #444;
+		}
+
+		.keySkills ul li {
+			margin-bottom: 3px;
+		}
+			
+		@media all and (min-width: 602px) and (max-width: 800px) {
+			#headshot {
+				display: none;
+			}
+			
+			.keySkills {
+				-moz-column-count:2;
+				-webkit-column-count:2;
+				column-count:2;
+			}
+		}
+			
+		@media all and (max-width: 601px) {
+			#cv {
+				width: 95%;
+				margin: 10px auto;
+				min-width: 280px;
+			}
+				
+			#headshot {
+				display: none;
+			}
+				
+			#name, #contactDetails {
+				float: none;
+				width: 100%;
+				text-align: center;
+			}
+				
+			.sectionTitle, .sectionContent {
+				float: none;
+				width: 100%;
+			}
+				
+			.sectionTitle {
+				margin-left: -2px;
+				font-size: 1.25em;
+			}
+				
+			.keySkills {
+				-moz-column-count:2;
+				-webkit-column-count:2;
+				column-count:2;
+			}
+		}
+			
+		@media all and (max-width: 480px) {
+			.mainDetails {
+				padding: 15px 15px;
+			}
+				
+			section {
+				padding: 15px 0 0;
+			}
+				
+			#mainArea {
+				padding: 0 25px;
+			}
+			
+			.keySkills {
+			-moz-column-count:1;
+			-webkit-column-count:1;
+			column-count:1;
+			}
+				
+			#name h1 {
+				line-height: .8em;
+				margin-bottom: 4px;
+			}
+		}
+			
+		@media print {
+			#cv {
+				width: 100%;
+			}
+		}
+
+		#contentList{
+			padding-bottom: 20px;
+		}
+
+		strong {
+			font-weight: bolder;
+		}
+
+		em {
+			font-style: italic;
+		}
+	</style>
+</head>
+<body id="top">
+<div id="cv">
+	<div class="mainDetails">
+		<div id="headshot">
+			<img id="headshot" src="https://media.licdn.com/dms/image/C5603AQGhTaUTBkFQgg/profile-displayphoto-shrink_200_200/0?e=1576108800&v=beta&t=ksCs9Y8VjJ7yDLBaJ7rbs8k-Zon28SRhfV6nvOzGkD0" alt="Paul Barden">
+		</div>
+		<div id="name">
+			<h1>Paul Barden</h1>
+			<h2>Software Developer</h2>
+		</div>
+		<div id="contactDetails">
+			<ul>
+				<li>📧 <a href="mailto:hire_me@pbarden.io" target="_blank">hire_me@pbarden.io</a></li>
+				<li>💻 <a href="http://www.pbarden.io" target="_blank">pbarden.io</a></li>
+				<li>👨‍💻 <a href="http://www.github.com/pbarden" target="_blank">github.com/pbarden</a></li>
+				<li>📞 <a href="tel:7206960075">720.696.0075</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="mainArea" class=" delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>About Me</h1>
+				</div>
+				<div class="sectionContent">
+					<p>
+						Dynamic and accomplished IT professional and honor student. Strong project leader with a positive, collaborative, determined attitude and approach to life. Comfortable working in a dynamic, low-structure, constantly changing atmosphere with ability to prioritize work appropriately.
+					</p>
+					<ul id="contentList">
+						<li>Designs and deploys innovative solutions.</li> 
+						<li>Able to diagnose and report complex issues.</li>
+						<li>Develops resources in various environments.</li>
+						<li>Able to work with little direction or as part of a team. </li>
+						<li>Adept in building trusting relationships.</li>
+					</ul>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Experience</h1>
+			</div>
+			<div class="sectionContent">
+				
+					<article>
+						<h2>Shopify Developer at Speed Boostr</h2>
+						<p class="subDetails">12/2018 - <em>Present</em></p>
+						<p><ul>
+<li>Conduct performance analysis on various ecommerce websites, using results to target performance/functionality enhancements, error fixes, etc.</li>
+<li>Website performance metrics (ex. page speed) improved by up to 96%</li>
+<li>Optimize pages using HTML, CSS, Javascript, Liquid, etc. and develop new features upon request</li>
+<li>Assisted in the development of additional service offerings</li>
+<li>Train and mentor new developers</li>
+<li>Project scope analysis and pre-sales consulting calls</li>
+<li>Project reporting and client email correspondence</li>
+</ul></p>
+                    </article>
+                
+					<article>
+						<h2>Lead Software QA Engineer at iBeta Quality Assurance</h2>
+						<p class="subDetails">10/2018 - 1/2019</p>
+						<p><ul>
+<li>Software testing (UAT, PAD, accessibility, regression, etc.)</li>
+<li>Lead small teams, providing coaching and feedback when appropriate</li>
+<li>Responsible for research and development of test plans</li>
+</ul></p>
+                    </article>
+                
+					<article>
+						<h2>Software QA Engineer at iBeta Quality Assurance</h2>
+						<p class="subDetails">3/2018 - 10/2018</p>
+						<p><ul>
+<li>Participated in accreditation as a FIDO Accredited Biometrics Laboratory</li>
+<li>Tested biometrics, websites, mobile and desktop applications for 3rd party</li>
+<li>Created and executed test plans to identify potential bugs and root causes</li>
+</ul></p>
+                    </article>
+                
+					<article>
+						<h2>Private Tutor at Chegg Inc.</h2>
+						<p class="subDetails">1/2018 - 6/2018</p>
+						<p><ul>
+<li>Specialized in college-level mathematics (up to discrete math) and computer science (programming, web design, database, etc.)</li>
+<li>Identify specific areas for improvement by using a direct teaching approach to engage students</li>
+<li>Work with students in personalized sessions to target improvements</li>
+</ul></p>
+                    </article>
+                
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Toolbox</h1>
+			</div>
+			<div class="sectionContent">
+				<ul class="keySkills">
+					
+						<li>Python</li>
+					
+						<li>Javascript</li>
+					
+						<li>Java</li>
+					
+						<li>HTML</li>
+					
+						<li>CSS</li>
+					
+						<li>C#</li>
+					
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Education</h1>
+			</div>
+			<div class="sectionContent">
+				
+					<article>
+						<h2>Bachelor of Science in Information Technology</h2>
+						<h3>University of Phoenix</h3>
+						<p><em>2016 - 2020</em></p>
+            			<p><ul>
+<li><strong>Chapter Member</strong>, Epsilon Pi Tau – Delta Sigma</li>
+<li><strong>Chapter Member</strong>, National Society of Collegiate Scholars</li>
+<li><strong>IT Coordinator</strong> <em>(founding member)</em>, National Society of Leadership and Success</li>
+</ul></p>
+					</article>
+				
+					<article>
+						<h2>Undergraduate Certificate in Software Development</h2>
+						<h3>University of Phoenix</h3>
+						<p><em>2016 - 2020</em></p>
+            			<p><p>3.8 GPA</p></p>
+					</article>
+				
+			</div>
+			<div class="clear"></div>
+		</section>
+	</div>
+</div>
+</body>
+</html>
