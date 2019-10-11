@@ -14,7 +14,7 @@
 <div id="cv">
 	<div class="mainDetails">
 		<div id="headshot">
-				<img id="headshot" src="{% static 'images/headshot.png' %}" alt="Paul Barden">
+			<img id="headshot" src="{% static 'images/headshot.png' %}" alt="Paul Barden">
 		</div>
 		<div id="name">
 			<h1>Paul Barden</h1>
@@ -22,10 +22,10 @@
 		</div>
 		<div id="contactDetails">
 			<ul>
-				<li>e: <a href="mailto:hire_me@pbarden.io" target="_blank">hire_me@pbarden.io</a></li>
-				<li>w: <a href="http://www.pbarden.io" target="_blank">www.pbarden.io</a></li>
-				<li>g: <a href="http://www.github.com/pbarden" target="_blank">www.github.com/pbarden</a></li>
-				<li>m: 720.696.0075</li>
+				<li>📧 <a href="mailto:hire_me@pbarden.io" target="_blank">hire_me@pbarden.io</a></li>
+				<li>💻 <a href="http://www.pbarden.io" target="_blank">pbarden.io</a></li>
+				<li>👨‍💻 <a href="http://www.github.com/pbarden" target="_blank">github.com/pbarden</a></li>
+				<li>📞 <a href="tel:7206960075">720.696.0075</a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -59,7 +59,7 @@
 				{% for job in jobs %}
 					<article>
 						<h2>{{ job.title }} at {{ job.company }}</h2>
-						<p class="subDetails">{{ job.start_date.year }} - {{ job.end_date.year }}</p>
+						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {{ job.end_date.month }}/{{ job.end_date.year }}</p>
 						<p>{{ job.description|markdown }}</p>
                     </article>
                 {% endfor %}
@@ -89,7 +89,6 @@
 						<h2>{{ degree.kind }} in {{ degree.major }}</h2>
 						<h3>{{ degree.school }}</h3>
 						<p><em>{{ degree.start_date.year }} - {{ degree.end_date.year }}</em></p>
-						<p class="subDetails">Qualification</p>
             			<p>{{ degree.description|markdown }}</p>
 					</article>
 				{% endfor %}

@@ -234,12 +234,14 @@ section:last-child {
     }
 }
 
-#contentList li {
-    list-style: square;
-    list-style-position: inside;
-    padding-left: 20px;
-}
-
 #contentList{
     padding-bottom: 20px;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+em {
+    font-style: italic;
 }
