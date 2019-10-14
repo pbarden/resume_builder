@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+{% load cv_tags %}
+<head>
+    <title>D. Paul Barden's Resume</title>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="D. Paul Barden's Resume"/>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/resume.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+<div id="cv">
+	<div class="mainDetails">
+		<div id="headshot">
+			<img id="headshot" src="{% static 'images/headshot.png' %}" alt="Paul Barden">
+		</div>
+		<div id="name">
+			<h1>Paul Barden</h1>
+			<h2>Software Developer</h2>
+		</div>
+		<div id="contactDetails">
+			<ul>
+				<li>📧 <a href="mailto:hire_me@pbarden.io" target="_blank">hire_me@pbarden.io</a></li>
+				<li>💻 <a href="http://www.pbarden.io" target="_blank">pbarden.io</a></li>
+				<li>👨‍💻 <a href="http://www.github.com/pbarden" target="_blank">github.com/pbarden</a></li>
+				<li>📞 <a href="tel:7206960075">720.696.0075</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="mainArea" class=" delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>About Me</h1>
+				</div>
+				<div class="sectionContent">
+					<p>
+						Dynamic and accomplished IT professional and honor student. Strong project leader with a positive, collaborative, determined attitude and approach to life. Comfortable working in a dynamic, low-structure, constantly changing atmosphere with ability to prioritize work appropriately.
+					</p>
+					<ul id="contentList">
+						<li>Designs and deploys innovative solutions.</li> 
+						<li>Able to diagnose and report complex issues.</li>
+						<li>Develops resources in various environments.</li>
+						<li>Able to work with little direction or as part of a team. </li>
+						<li>Adept in building trusting relationships.</li>
+					</ul>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Experience</h1>
+			</div>
+			<div class="sectionContent">
+				{% for job in jobs %}
+					<article>
+						<h2>{{ job.title }} at {{ job.company }}</h2>
+						<img src="{{ job.logo_url }}" class="logo">
+						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</p>
+						<p>{{ job.description|markdown }}</p>
+                    </article>
+                {% endfor %}
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Toolbox</h1>
+			</div>
+			<div class="sectionContent">
+				<ul class="keySkills">
+					{% for skill in skills %}
+						<li>{{ skill }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1>Education</h1>
+			</div>
+			<div class="sectionContent">
+				{% for degree in degrees %}
+					<article>
+						<h2>{{ degree.kind }} in {{ degree.major }}</h2>
+						<h3>{{ degree.school }}</h3>
+						<img src="{{ degree.icon_url }}" class="logo">
+						<p><em>{{ degree.start_date.year }} - {{ degree.end_date.year }}</em></p>
+            			<p>{{ degree.description|markdown }}</p>
+					</article>
+				{% endfor %}
+			</div>
+			<div class="clear"></div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

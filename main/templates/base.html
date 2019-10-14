@@ -1,103 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 {% load static %}
 {% load cv_tags %}
 <head>
-    <title>D. Paul Barden's Resume</title>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="description" content="D. Paul Barden's Resume"/>
-    <meta charset="UTF-8">
-    <link href="{% static 'css/resume.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>D. Paul Barden's Resume</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/resume.min.css' %}" rel="stylesheet">
+
 </head>
-<body id="top">
-<div id="cv">
-	<div class="mainDetails">
-		<div id="headshot">
-			<img id="headshot" src="{% static 'images/headshot.png' %}" alt="Paul Barden">
-		</div>
-		<div id="name">
-			<h1>Paul Barden</h1>
-			<h2>Software Developer</h2>
-		</div>
-		<div id="contactDetails">
-			<ul>
-				<li>📧 <a href="mailto:hire_me@pbarden.io" target="_blank">hire_me@pbarden.io</a></li>
-				<li>💻 <a href="http://www.pbarden.io" target="_blank">pbarden.io</a></li>
-				<li>👨‍💻 <a href="http://www.github.com/pbarden" target="_blank">github.com/pbarden</a></li>
-				<li>📞 <a href="tel:7206960075">720.696.0075</a></li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-	<div id="mainArea" class=" delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>About Me</h1>
-				</div>
-				<div class="sectionContent">
-					<p>
-						Dynamic and accomplished IT professional and honor student. Strong project leader with a positive, collaborative, determined attitude and approach to life. Comfortable working in a dynamic, low-structure, constantly changing atmosphere with ability to prioritize work appropriately.
-					</p>
-					<ul id="contentList">
-						<li>Designs and deploys innovative solutions.</li> 
-						<li>Able to diagnose and report complex issues.</li>
-						<li>Develops resources in various environments.</li>
-						<li>Able to work with little direction or as part of a team. </li>
-						<li>Adept in building trusting relationships.</li>
-					</ul>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>Experience</h1>
-			</div>
-			<div class="sectionContent">
-				{% for job in jobs %}
-					<article>
-						<h2>{{ job.title }} at {{ job.company }}</h2>
-						<img src="{{ job.logo_url }}" class="logo">
-						<p class="subDetails">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</p>
-						<p>{{ job.description|markdown }}</p>
-                    </article>
-                {% endfor %}
-			</div>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>Toolbox</h1>
-			</div>
-			<div class="sectionContent">
-				<ul class="keySkills">
-					{% for skill in skills %}
-						<li>{{ skill }}</li>
-					{% endfor %}
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
-			<div class="sectionContent">
-				{% for degree in degrees %}
-					<article>
-						<h2>{{ degree.kind }} in {{ degree.major }}</h2>
-						<h3>{{ degree.school }}</h3>
-						<img src="{{ degree.icon_url }}" class="logo">
-						<p><em>{{ degree.start_date.year }} - {{ degree.end_date.year }}</em></p>
-            			<p>{{ degree.description|markdown }}</p>
-					</article>
-				{% endfor %}
-			</div>
-			<div class="clear"></div>
-		</section>
-	</div>
-</div>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Paul Barden</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'images/headshot.png' %}" alt="Headshot">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger hoverfx" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger hoverfx" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger hoverfx" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger hoverfx" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger hoverfx" href="#interests">Interests</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0">Paul
+          <span class="text-primary">Barden</span>
+        </h1>
+        <div class="subheading mb-5">Denver, CO 80212 · (720) 696-0075 ·
+          <a href="mailto:name@email.com">hire_me@pbarden.io</a>
+        </div>
+        <p class="lead mb-5">Dynamic and accomplished IT professional and honor student. Strong project leader with a positive, collaborative, determined attitude and approach to life. Comfortable working in a dynamic, low-structure, constantly changing atmosphere with ability to prioritize work appropriately.</p>
+        <ul id="content-list">
+          <li>Designs and deploys innovative solutions.</li> 
+          <li>Able to diagnose and report complex issues.</li>
+          <li>Develops resources in various environments.</li>
+          <li>Able to work with little direction or as part of a team. </li>
+          <li>Adept in building trusting relationships.</li>
+        </ul>
+        <div class="social-icons">
+          <a target="_blank" href="https://linkedin.com/in/paulbarden">
+            <i class="fab fa-linkedin-in hoverfx"></i>
+          </a>
+          <a target="_blank" href="https://www.github.com/pbarden">
+            <i class="fab fa-github hoverfx"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Experience</h2>
+
+        {% for job in jobs %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <img src="{{ job.logo_url }}" class="company-logo hoverfx">
+            <h3 class="mb-0">{{ job.title }}</h3>
+            <div class="subheading mb-3">{{ job.company }}</div>
+            <p>{{ job.description|markdown }}</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</span>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+
+        {% for degree in degrees %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <img src="{{ degree.icon_url }}" class="company-logo hoverfx">
+            <h3 class="mb-0">{{ degree.kind }} in {{ degree.major }}</h3>
+            <div class="subheading mb-3">{{ degree.school }}</div>
+            <p>{{ degree.description|markdown }}</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ degree.start_date.year }} - {{ degree.end_date.year }}</span>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <ul class="list-inline dev-icons">
+          {% for skill in skills %}
+            <li class="list-inline-item hoverfx">
+                {{ skill }}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="subheading mb-3">Workflow</div>
+        <ul class="content-list">
+          <li>
+            Full-Stack Web Development</li>
+          <li>
+            Cross Browser Testing &amp; Debugging</li>
+          <li>
+            Cross Functional Teams</li>
+          <li>
+            Agile Development &amp; Scrum</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+      <div class="w-100">
+        <h2 class="mb-5">Interests</h2>
+        <p>Apart from being a developer, I attend school and work however I'm not left with much free time these days! I enjoy coffee, strategy games, science fiction, brunch, beer, wine & food festivals, and long mountain hikes here in Colorado.</p>
+        <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/resume.min.js' %}"></script>
+
 </body>
+
 </html>
