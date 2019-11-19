@@ -9,28 +9,49 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>D. Paul Barden's Resume</title>
+  <title>{{ profiles.first.name }}'s Resume</title>
 
-  <!-- Bootstrap core CSS -->
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
   <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
   <link href="{% static 'css/resume.min.css' %}" rel="stylesheet">
 
+  <!-- Custom styling -->
+  <style>
+    body,h1,h4,h5,h6 {color:#{{ profiles.first.color_text }};}
+    h2{color:#{{ profiles.first.color_main }};}
+    h3{color:#{{ profiles.first.color_accent }};}
+    .text-primary{color:#{{ profiles.first.color_main }}!important;}
+    .social-icons a{display:inline-block;height:3.5rem;width:3.5rem;background-color:#{{ profiles.first.color_background }};color:#{{ profiles.first.color_text }}!important;border-radius:100%;text-align:center;font-size:2rem;line-height:3.5rem;margin-right:0.5rem}
+    .social-icons a:last-child{margin-right:0}
+    .social-icons a:hover{background-color:#{{ profiles.first.color_accent }};color:#{{ profiles.first.color_background }}!important;}
+    .bg-primary{background-color:#{{ profiles.first.color_main }}!important}
+    .text-primary{color:{{ profiles.first.color_main }}!important}
+    a{color:#{{ profiles.first.color_main }}}
+    a:active,a:focus,a:hover{color:#{{ profiles.first.color_main }}}
+    .dev-icons .list-inline-item i:hover{color:#{{ profiles.first.color_accent }}}
+    .text-dates{color:#{{ profiles.first.color_accent }};}
+    .list-inline-item > .subheading {color: #{{ profiles.first.color_accent }};}
+    .subheading > a {color:#{{ profiles.first.color_accent }}!important;}    
+    #sideNav .navbar-toggler:focus{outline-color:#{{ profiles.first.color_accent }}}
+    body{color:#{{ profiles.first.color_text }}}
+    .container-fluid{background-color: #{{ profiles.first.color_background }};}
+    #sideNav .navbar-brand .img-profile{max-width:10rem;max-height:10rem;border:.5rem solid #{{ profiles.first.color_accent }};}
+    .card{background-color: #{{ profiles.first.color_text }};margin-top: 15px;}
+    .card, .card-title{color:#{{ profiles.first.color_background }};}
+    .btn-primary{font-weight: 700;font-size: 1.25em; background-color: #{{ profiles.first.color_accent }};border-color: #{{ profiles.first.color_accent }};}
+    .btn-primary:hover{color: #{{ profiles.first.color_accent }};background-color: #{{ profiles.first.color_background }};border-color: #{{ profiles.first.color_background }}}
+  </style>
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Paul Barden</span>
+      <span class="d-block d-lg-none">{{ profiles.first.name }} | Resume</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'images/headshot.png' %}" alt="Headshot">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ profiles.first.photo_url }}" alt="Headshot">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,58 +60,56 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger hoverfx" href="#about">About</a>
+          <a class="nav-link js-scroll-trigger hoverfx" href="#{{ profiles.first.title_section_1 }}">{{ profiles.first.title_section_1 }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger hoverfx" href="#experience">Experience</a>
+          <a class="nav-link js-scroll-trigger hoverfx" href="#{{ profiles.first.title_section_2 }}">{{ profiles.first.title_section_2 }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger hoverfx" href="#education">Education</a>
+          <a class="nav-link js-scroll-trigger hoverfx" href="#{{ profiles.first.title_section_3 }}">{{ profiles.first.title_section_3 }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger hoverfx" href="#skills">Skills</a>
+          <a class="nav-link js-scroll-trigger hoverfx" href="#{{ profiles.first.title_section_4 }}">{{ profiles.first.title_section_4 }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger hoverfx" href="#interests">Interests</a>
+          <a class="nav-link js-scroll-trigger hoverfx" href="#{{ profiles.first.title_section_5 }}">{{ profiles.first.title_section_5 }}</a>
         </li>
+        <div class="social-icons">
+          {% if profiles.first.linkedin_url %}
+            <a target="_blank" href="{{ profiles.first.linkedin_url }}">
+              <i class="fab fa-linkedin-in hoverfx"></i>
+            </a>
+          {% endif %}
+          {% if profiles.first.github_url %}
+            <a target="_blank" href="{{ profiles.first.github_url }}">
+              <i class="fab fa-github hoverfx"></i>
+            </a>
+          {% endif %}
+          </div>
       </ul>
     </div>
   </nav>
 
   <div class="container-fluid p-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{ profiles.first.title_section_1 }}">
       <div class="w-100">
-        <h1 class="mb-0">Paul
-          <span class="text-primary">Barden</span>
-        </h1>
-        <div class="subheading mb-5">Denver, CO 80212 · (720) 696-0075 ·
-          <a href="mailto:name@email.com">hire_me@pbarden.io</a>
+        <h1 class="mb-0">{{ profiles.first.name }}</h1>
+        <h2><span class="text-primary">{{ profiles.first.title }}</span></h2>
+        <div class="subheading mb-5">{{ profiles.first.address }} · <a href="tel:{{ profiles.first.phone }}">{{ profiles.first.phone }}</a> ·
+          <a href="mailto:{{ profiles.first.email }}">{{ profiles.first.email }}</a>
         </div>
-        <p class="lead mb-5">Dynamic and accomplished IT professional and honor student. Strong project leader with a positive, collaborative, determined attitude and approach to life. Comfortable working in a dynamic, low-structure, constantly changing atmosphere with ability to prioritize work appropriately.</p>
-        <ul id="content-list">
-          <li>Designs and deploys innovative solutions.</li> 
-          <li>Able to diagnose and report complex issues.</li>
-          <li>Develops resources in various environments.</li>
-          <li>Able to work with little direction or as part of a team. </li>
-          <li>Adept in building trusting relationships.</li>
-        </ul>
-        <div class="social-icons">
-          <a target="_blank" href="https://linkedin.com/in/paulbarden">
-            <i class="fab fa-linkedin-in hoverfx"></i>
-          </a>
-          <a target="_blank" href="https://www.github.com/pbarden">
-            <i class="fab fa-github hoverfx"></i>
-          </a>
+        <div class="mb-5">
+            <p class="lead mb-5">{{ profiles.first.about|markdown }}</p>
         </div>
       </div>
     </section>
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{ profiles.first.title_section_2 }}">
       <div class="w-100">
-        <h2 class="mb-5">Experience</h2>
+        <h2 class="mb-5">{{ profiles.first.title_section_2 }}</h2>
 
         {% for job in jobs %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -101,7 +120,7 @@
             <p>{{ job.description|markdown }}</p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</span>
+            <span class="text-dates">{{ job.start_date.month }}/{{ job.start_date.year }} - {% if job.still_employed %}<em>Present</em>{% else %}{{ job.end_date.month }}/{{ job.end_date.year }}{% endif %}</span>
           </div>
         </div>
         {% endfor %}
@@ -112,9 +131,9 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{ profiles.first.title_section_3 }}">
       <div class="w-100">
-        <h2 class="mb-5">Education</h2>
+        <h2 class="mb-5">{{ profiles.first.title_section_3 }}</h2>
 
         {% for degree in degrees %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -135,40 +154,67 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{ profiles.first.title_section_4 }}">
       <div class="w-100">
-        <h2 class="mb-5">Skills</h2>
-
-        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <h2 class="mb-5">{{ profiles.first.title_section_4 }}</h2>
         <ul class="list-inline dev-icons">
+            <li class="list-inline-item">
+              <div class="subheading mb-3">{{ profiles.first.skill_category_1 }}&emsp13;| </div>
+            </li>
           {% for skill in skills %}
+          {% if skill.category == 'category-1' %}
             <li class="list-inline-item hoverfx">
                 {{ skill }}
             </li>
+          {% endif %}
           {% endfor %}
         </ul>
-
-        <div class="subheading mb-3">Workflow</div>
-        <ul class="content-list">
-          <li>
-            Full-stack web development</li>
-          <li>
-            Cross platform testing &amp; debugging</li>
-          <li>
-            Reporting and email correspondence</li>
-          <li>
-            Scoping and pre-sales consulting</li>
+        <ul class="list-inline dev-icons">
+            <li class="list-inline-item">
+              <div class="subheading mb-3">{{ profiles.first.skill_category_2 }}&emsp13;| </div>
+            </li>
+          {% for skill in skills %}
+          {% if skill.category == 'category-2' %}
+            <li class="list-inline-item hoverfx">
+                {{ skill }}
+            </li>
+          {% endif %}
+          {% endfor %}
         </ul>
-      </div>
+        <ul class="list-inline dev-icons">
+            <li class="list-inline-item">
+              <div class="subheading mb-3">{{ profiles.first.skill_category_3 }}&emsp13;| </div>
+            </li>
+          {% for skill in skills %}
+          {% if skill.category == 'category-3' %}
+            <li class="list-inline-item hoverfx">
+                {{ skill }}
+            </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
     </section>
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="{{ profiles.first.title_section_5 }}">
       <div class="w-100">
-        <h2 class="mb-5">Interests</h2>
-        <p>Apart from being a developer, I attend school and work however I'm not left with much free time these days! I enjoy coffee, strategy games, science fiction, brunch, beer, wine & food festivals, and long mountain hikes here in Colorado.</p>
-        <p class="mb-0">I am also an amateur chef with a passion for global cuisine, and I spend most of my free time learning about new technologies and new programming languages.</p>
+        <h2 class="mb-5">{{ profiles.first.title_section_5 }}</h2>
+
+        <div class="row d-flex justify-content-center">
+          {% for project in projects %}
+            <div class="col-md-4">
+              <div class="card">
+                <img src="{{ project.image_url }}" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">{{ project.subheading }}</h5>
+                  <p class="card-text">{{ project.description }}</p>
+                  <a href="#" class="btn btn-primary">{{ project.name }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </section>
 
@@ -185,5 +231,4 @@
   <script src="{% static 'js/resume.min.js' %}"></script>
 
 </body>
-
 </html>
