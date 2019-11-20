@@ -1,7 +1,10 @@
 from django.urls import path, include
+
 from django.contrib import admin
 
 admin.autodiscover()
+
+import resume_builder.views
 
 # To add a new path, first import the app:
 # import blog
@@ -13,5 +16,9 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')),
+    path('', include('resume_builder.urls')),
 ]
+
+admin.site.site_header = "Resume Site Admin"
+admin.site.site_title = "Resume Builder by D. Paul Barden 2019"
+admin.site.index_title = "Resume Site Admin"

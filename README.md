@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Python: Getting Started
-=======
-# Resume
->>>>>>> 965ee0689afa51257a4a5d0eab976480c2b4ad4a
 
-Python + Django + Bootstrap
+A barebones Django app, which can easily be deployed to Heroku.
 
-<<<<<<< HEAD
 This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
 ## Running Locally
@@ -49,13 +43,3 @@ or
 For more information about using Python on Heroku, see these Dev Center articles:
 
 - [Python on Heroku](https://devcenter.heroku.com/categories/python)
-=======
-# Resume
-
-Python + Django + Bootstrap
-
-Original template borrowed from @thomasjhardy, threw the resume bootstrap theme by BlackrockDigital and made various edits to make it more functional
->>>>>>> 965ee0689afa51257a4a5d0eab976480c2b4ad4a
-=======
-Original template borrowed from @thomasjhardy, threw the resume bootstrap theme by BlackrockDigital and made various edits to make it more functional
->>>>>>> 965ee0689afa51257a4a5d0eab976480c2b4ad4a
