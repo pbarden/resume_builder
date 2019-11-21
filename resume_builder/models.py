@@ -44,7 +44,7 @@ class Job(models.Model):
     objects = models.Manager()
 
     class Meta:
-        ordering = ('-start_date'),
+        ordering = ('-end_date'),
 
     def __str__(self):
         return self.title + " at " + self.company
