@@ -43,7 +43,7 @@
     .btn-primary{font-weight: 700;font-size: 1.25em; background-color: #{{ profiles.first.color_accent }};border-color: #{{ profiles.first.color_accent }};}
     .btn-primary:hover{color: #{{ profiles.first.color_accent }};background-color: #{{ profiles.first.color_background }};border-color: #{{ profiles.first.color_background }}}
     .dev-icons > .hoverfx:hover{color: #{{ profiles.first.color_main }};}
-    .card-img-top{height:220px;}
+    .card-img-top{min-height: 120px; max-height:360px;}
     .card:hover{transform: scale(1.25);transition:transform .3s;z-index: 2;}
   </style>
 </head>
@@ -212,7 +212,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ project.subheading }}</h5>
                   <p class="card-text">{{ project.description }}</p>
-                  <a href="#" class="btn btn-primary">{{ project.name }}</a>
+                  <a target="_blank" href="{{ project.link_url }}" class="btn btn-primary">{{ project.name }}</a>
                 </div>
               </div>
             </div>
