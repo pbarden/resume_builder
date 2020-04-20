@@ -142,7 +142,11 @@
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <img src="{{ degree.icon_url }}" class="company-logo hoverfx">
-            <h3 class="mb-0">{{ degree.kind }} in {{ degree.major }}</h3>
+            {% if 'master' in degree.kind %}
+              <h3 class="mb-0">{{ degree.kind }} of {{ degree.major }}</h3>
+            {% else %}
+              <h3 class="mb-0">{{ degree.kind }} in {{ degree.major }}</h3>
+            {% endif %}
             <div class="subheading mb-3">{{ degree.school }}</div>
             <p>{{ degree.description|markdown }}</p>
           </div>
